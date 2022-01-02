@@ -19,6 +19,7 @@
   "homepage": "https://github.com/ApsiV11/reaktor_backend#readme",
   "dependencies": {
     "express": "^4.17.2",
+    "express-ws": "^5.0.2",
     "mongoose": "^6.1.4"
   },
   "devDependencies": {
