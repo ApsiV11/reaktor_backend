@@ -1,0 +1,27 @@
+{
+  "name": "reaktor_backend",
+  "version": "1.0.0",
+  "description": "Backend for Reaktor Summer Developer 2022 pre-assigment",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ApsiV11/reaktor_backend.git"
+  },
+  "author": "ApsiV11",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ApsiV11/reaktor_backend/issues"
+  },
+  "homepage": "https://github.com/ApsiV11/reaktor_backend#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "mongoose": "^6.1.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
