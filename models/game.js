@@ -1,6 +1,5 @@
 const mongoose = require('mongoose')
-
-mongoose.set('useFindAndModify', false)
+const uniqueValidator = require('mongoose-unique-validator');
 
 const gameSchema = mongoose.Schema({
     type: {
@@ -9,7 +8,8 @@ const gameSchema = mongoose.Schema({
     },
     gameId: {
       type: String,
-      required: true
+      required: true,
+      unique: true
     },
     t: Number,
     playerA: {
@@ -21,6 +21,8 @@ const gameSchema = mongoose.Schema({
         required: true
     }
 })
+
+gameSchema.plugin(uniqueValidator);
 
 gameSchema.set('toJSON', {
     transform: (document, returnedObject) => {

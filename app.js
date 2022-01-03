@@ -1,8 +1,12 @@
 const express = require('express');
 
-const serverPort = 8080;
 const app = express();
 var expressWs = require('express-ws')(app);
+
+const gameApi = require('./api/gameApi')
+
+const populator = require('./utils/populator')
+//populator.downloadDatabase()
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
@@ -10,4 +14,6 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use(express.static('public'));
+app.use('/rps', gameApi);
+
+app.listen(8080)
