@@ -5,8 +5,9 @@ var expressWs = require('express-ws')(app);
 
 const gameApi = require('./api/gameApi')
 
+//Populate the database with historical data
 const populator = require('./utils/populator')
-//populator.downloadDatabase()
+populator.downloadDatabase()
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");

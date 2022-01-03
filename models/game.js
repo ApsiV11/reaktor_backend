@@ -19,7 +19,8 @@ const gameSchema = mongoose.Schema({
     playerB: {
         type: Object,
         required: true
-    }
+    },
+    winner: String
 })
 
 gameSchema.plugin(uniqueValidator);
