@@ -19,4 +19,4 @@ app.use(express.static('public'));
 
 app.use('/rps', gameApi);
 
-app.listen(8080)
+app.listen(process.env.PORT || 8080)
