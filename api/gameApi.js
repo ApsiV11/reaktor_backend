@@ -69,7 +69,7 @@ client.on('connect', (connection) => {
         }
 
         //Parse data two times because of string escaping
-        const gameEvent = JSON.parse(JSON.parse(message.utf8Data));
+        let gameEvent = JSON.parse(JSON.parse(message.utf8Data));
         
         //If the event is GAME_BEGIN just put in the array of activeGames
         if(gameEvent.type=="GAME_BEGIN") {
@@ -78,11 +78,16 @@ client.on('connect', (connection) => {
 
         //If the event is GAME_RESULT push it also to MongoDB and update it to array
         if(gameEvent.type=="GAME_RESULT") {
-            Game.create(transforms.addWinners([gameEvent])[0], (err, small) => {
+            gameEvent = transforms.addWinners([gameEvent])[0];
+            Game.create(gameEvent, (err, small) => {
                 if(err){
                     console.log(err);
                 }
             });
+
+            setTimeout(() => {
+                activeGames.data = activeGames.data.filter((game) => game.gameId!==gameEvent.gameId);
+            }, 30000);
 
             activeGames.data = activeGames.data.map((game) => game.gameId===gameEvent.gameId ? gameEvent : game);
         }
