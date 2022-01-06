@@ -24,4 +24,4 @@ After setting up and running the project, head to `localhost:8080` and the web a
 
 #Issues
 1. The live version of the app is quite slow. This is due to the fact that there is so much data as of 6.1.2022. Another reason is also the fact that the app is using a free MongoDB Atlas cluster so the bandwith is limited and the queries take much longer than an a local instance.
-2. The fetching of the data in the start needs to take in to account the data already on the database. This can be done by also saving the cursors to the database. This way if the server has down time we can load data until the data "hole" is filled.
+2. The fetching of the data in the start needs to take in to account that the backend may not have loaded the historical data fully. This is probably only a problem in the live version since the creation of new database documents is slow so it takes a large amount of time. We can maybe assume that everytime the backend is on, it loads the "hole" in the data fully from the /rps/history API.
