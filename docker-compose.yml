@@ -1,0 +1,18 @@
+version: "3"
+services:
+       reaktor-app:
+           container_name: reaktor-app
+           build:
+            context: reaktor-app
+            dockerfile: Dockerfile
+           restart: always
+           build: .
+           ports:
+             - "8080:8080"
+           links:
+             - mongodb
+       mongo:
+             container_name: mongodb
+             image: mongo
+             ports:
+               - '27017:27017'

@@ -1,0 +1,11 @@
+To build node app
+docker build . -t apsiv11/reaktor-app
+
+To create network
+docker network create -d bridge reaktor-app
+
+To start mongo
+docker run --name mongodb -d --network reaktor-app mongo
+
+To start reaktor-app
+docker run -p 8080:8080 --network reaktor-app -d apsiv11/reaktor-app
