@@ -3,3 +3,5 @@
 Dockerfile
 docker-compose.yml
 heroku.yml
+.dockerignore
+"Docker commands.txt"
