@@ -1,5 +1,0 @@
-build:
-  docker:
-    reaktor-app: Dockerfile
-run:
-  reaktor-app: npm run start
