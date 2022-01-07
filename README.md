@@ -4,6 +4,8 @@
 This is my solution for the Reaktor pre-assignment 2022 for Summer Developers. This repository has the code for the Node.js backend as well as the built version of the React frontend.
 The code for the frontend can be viewed at https://github.com/ApsiV11/reaktor.
 
+Live build is running at http://reaktor-summer-developer-app.herokuapp.com/.
+
 ## Running locally
 The project can be run two ways.
 
