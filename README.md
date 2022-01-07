@@ -22,6 +22,7 @@ After setting up and running the project, head to `localhost:80` and the web app
 3. Before a game is put into the database, the winner is added to the data. This makes it faster to calculate the winning percentage.
 4. Player data can be viewed by clicking a player name. After that the backend loads all the games with our wanted player and sends them to the frontend. Win percentage, most played hand and total game count are calculated in the frontend.
 
-#Issues
-1. The live version of the app is quite slow. This is due to the fact that there is so much data as of 6.1.2022. Another reason is also the fact that the app is using a free MongoDB Atlas cluster so the bandwith is limited and the queries take much longer than an a local instance.
+# Issues
+1. The live version of the app is quite slow. This is due to the fact that there is so much data as of 6.1.2022.
 2. The fetching of the data in the start needs to take in to account that the backend may not have loaded the historical data fully. This is probably only a problem in the live version since the creation of new database documents is slow so it takes a large amount of time. We can maybe assume that everytime the backend is on, it loads the "hole" in the data fully from the /rps/history API.
+3. The paging doesn't reset when the player is switched and there is also no way to set the active player to null.
