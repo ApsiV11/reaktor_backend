@@ -1,6 +1,6 @@
 # reaktor_backend
 
-#Reaktor pre-assignment 2022 for Summer Developers
+# Reaktor pre-assignment 2022 for Summer Developers
 This is my solution for the Reaktor pre-assignment 2022 for Summer Developers. This repository has the code for the Node.js backend as well as the built version of the React frontend.
 The code for the frontend can be viewed at https://github.com/ApsiV11/reaktor.
 
