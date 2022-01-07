@@ -13,7 +13,7 @@ docker-compose up
 ```
 or you can set up an '.env'-file by setting an "DBADDRESS"-enviroment variable to point at your mongoDB database of choice. The first alternative is better, since a it setups the database locally.
 
-After setting up and running the project, head to `localhost:8080` and the web application should work.
+After setting up and running the project, head to `localhost:80` and the web application should work.
 
 ## The keypoints in my implementation
 
