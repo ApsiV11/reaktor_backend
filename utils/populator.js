@@ -23,13 +23,13 @@ const downloadDatabase = async () => {
             continue;
         }
 
-        //Update the cursor to point it to the next page
+        const previousCursor = cursor.toString();
         cursor = response.data.cursor;
 
         //This will end the data load to this page
         console.log(isCursorFound)
-        console.log(cursor)
-        if(isCursorFound.length>0 && cursor===isCursorFound[0].cursor) {
+        console.log(previousCursor)
+        if(isCursorFound.length>0 && previousCursor===isCursorFound[0].cursor) {
             break;
         }
         else if(cursor){
