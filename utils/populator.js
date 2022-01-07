@@ -28,7 +28,7 @@ const downloadDatabase = async () => {
 
         //This will end the data load to this page
         if(isCursorFound.length>0 && previousCursor===isCursorFound[0].cursor) {
-            break;
+            cursor = null;
         }
         else if(cursor){
             await Cursor.create({"cursor": cursor});
