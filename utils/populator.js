@@ -13,8 +13,6 @@ const downloadDatabase = async () => {
     let i = 1;
     while(cursor) {
 
-        const isCursorFound = await Cursor.find({"cursor": cursor});
-
         let response = null;
         try {
             response = await axios.get(`https://bad-api-assignment.reaktor.com${cursor}`);
@@ -23,11 +21,12 @@ const downloadDatabase = async () => {
             continue;
         }
 
-        const previousCursor = cursor.toString();
         cursor = response.data.cursor;
 
+        const isCursorFound = await Cursor.find({"cursor": cursor});
+
         //This will end the data load to this page
-        if(isCursorFound.length>0 && previousCursor===isCursorFound[0].cursor) {
+        if(isCursorFound.length>0 && cursor===isCursorFound[0].cursor) {
             cursor = null;
         }
         else if(cursor){
