@@ -36,6 +36,9 @@ gameRouter.get('/history/:name', async (request, response) => {
 gameRouter.ws('/live', (ws, request) => {
     console.log('Socket Connected');
     ws.on("message", () => {
+
+        //Send first data immediately
+        ws.send(JSON.stringify(activeGames));
         const interval = setInterval(() => {
             if(ws.readyState === ws.OPEN) {
                 ws.send(JSON.stringify(activeGames));
