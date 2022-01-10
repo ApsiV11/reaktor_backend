@@ -38,7 +38,7 @@ const downloadDatabase = async () => {
         if(isCursorFound.length>0 && thisPage===isCursorFound[0].cursor) {
             cursor = null;
         }
-        else if(cursor && cursor!="/rps/history"){
+        else if(cursor && cursor!=="/rps/history"){
             await Cursor.create({"cursor": cursor});
         }
 
