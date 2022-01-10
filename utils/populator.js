@@ -5,6 +5,8 @@ const transforms = require('./transforms')
 
 const axios = require("axios");
 
+
+//This function is invoked everytime the server startups. It loads the data from the reaktor api to update the mongodb data.
 const downloadDatabase = async () => {
     console.log("Downloading history");
 
@@ -21,15 +23,22 @@ const downloadDatabase = async () => {
             continue;
         }
 
-        cursor = response.data.cursor;
+        //An example:
+        //If the database has already the cursor the first page gives, this function will load the first page and also the second.
+        //This ensures all the data is loaded.
 
+        //Check if this page's cursor is in the database.
         const isCursorFound = await Cursor.find({"cursor": cursor});
 
-        //This will end the data load to this page
-        if(isCursorFound.length>0 && cursor===isCursorFound[0].cursor) {
+        //Set cursor only after the check so that also the next page is loaded due to possible missing documents from the page.
+        thisPage=cursor.toString();
+        cursor = response.data.cursor;
+
+        //This will end the data load to the this page
+        if(isCursorFound.length>0 && thisPage===isCursorFound[0].cursor) {
             cursor = null;
         }
-        else if(cursor){
+        else if(cursor && cursor!="/rps/history"){
             await Cursor.create({"cursor": cursor});
         }
 
