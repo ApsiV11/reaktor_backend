@@ -9,11 +9,11 @@ Live build is running at http://reaktor-summer-developer-app.herokuapp.com/.
 ## Running locally
 The project can be run two ways.
 
-After cloning the repository, you can use docker-compose to set up the project by running in the root directory. An .env should be created with the "DBADDRESS"-enviroment variable set to "mongodb://mongodb:27017/reaktorDB":
+After cloning the repository, you can use docker-compose to set up the project by running in the root directory. An .env should be created with the "DBADDRESS"-environment variable set to "mongodb://mongodb:27017/reaktorDB":
 ```
 docker-compose up
 ```
-or you can set up an '.env'-file by setting an "DBADDRESS"-enviroment variable to point at your mongoDB database of choice. The first alternative is better, since a it setups the database locally.
+or you can set up an '.env'-file by setting an "DBADDRESS"-environment variable to point at your mongoDB database of choice. The first alternative is better, since a it setups the database locally.
 
 After setting up and running the project, head to `localhost:80` and the web application should work.
 
