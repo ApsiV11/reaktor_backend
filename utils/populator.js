@@ -27,12 +27,12 @@ const downloadDatabase = async () => {
         //If the database has already the cursor the first page gives, this function will load the first page and also the second.
         //This ensures all the data is loaded.
 
-        //Check if this page's cursor is in the database.
-        const isCursorFound = await Cursor.find({"cursor": cursor});
-
         //Set cursor only after the check so that also the next page is loaded due to possible missing documents from the page.
-        thisPage=cursor.toString();
+        const thisPage=cursor.toString();
         cursor = response.data.cursor;
+
+        //Check if this page's cursor is in the database.
+        const isCursorFound = await Cursor.find({"cursor": thisPage});
 
         //This will end the data load to the this page
         if(isCursorFound.length>0 && thisPage===isCursorFound[0].cursor) {
