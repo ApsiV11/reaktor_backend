@@ -39,7 +39,7 @@ const downloadDatabase = async () => {
             cursor = null;
         }
         else if(cursor && cursor!=="/rps/history"){
-            await Cursor.create({"cursor": cursor});
+            await Cursor.create({"cursor": thisPage});
         }
 
         //Insert data into MongoDB after adding the winner data
