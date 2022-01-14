@@ -5,7 +5,11 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "start": "nodemon app.js",
+    "build:ui": "del public && cd ../reaktor && npm run build && xcopy build ..\\reaktor_backend\\public\\ /e /s /y",
+    "deploy:heroku": "git checkout heroku && git push",
+    "deploy": "git checkout master && git push master",
+    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && npm run deploy"
   },
   "repository": {
     "type": "git",
